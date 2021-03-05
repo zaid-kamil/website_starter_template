@@ -6,7 +6,7 @@ class Project(models.Model):
     title = models.CharField(max_length=100,default='project')
     description = models.TextField(default='No Description given')
     technology = models.CharField(max_length=50, default='Django')
-    image = models.FilePathField(path='/img', default='/img/noimage.png')
+    # image = models.FilePathField(path='/img', default='/img/noimage.png')
 
     class Meta:
         """Meta definition for Project."""
