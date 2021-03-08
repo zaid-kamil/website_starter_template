@@ -7,7 +7,27 @@
 
 
 {% block body %}
-    {{projects}}
+    <div class="container mt-5">
+        <div class="row">
+            
+            {% for item in projects %}
+                <div class="col-md-4 my-4">
+                    <div class="card shadow-lg">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ item.title }}</h4>
+                            <p class="text-muted">
+                                {{item.description | slice:150}}...<a href="{% url 'project_detail' item.pk %}">Read more</a>
+                            </p>
+                            <span class="badge badge-pill badge-warning">{{item.technology}}</span>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <h1>No Data Available</h1>
+            {% endfor %}
+                
+        </div>
+    </div>
 {% endblock body %}
 
 
